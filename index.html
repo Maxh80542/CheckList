@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Empilhadeira</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Relatorio.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="download.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Checklist de Empilhadeira</h1>
+    </header>
+    <main>
+        <!-- Seção do formulário -->
+        <section class="form-container">
+            <form id="checklistForm">
+                <h2>Preencha o Checklist:</h2>
+
+                <!-- Dados do colaborador -->
+                <div class="form-info">
+                    <label for="nomeColaborador">Nome do Colaborador:</label>
+                    <input type="text" id="nomeColaborador" name="nomeColaborador" required>
+                </div>
+                <div class="form-info">
+                    <label for="matriculaColaborador">Matrícula:</label>
+                    <input type="text" id="matriculaColaborador" name="matriculaColaborador" required>
+                </div>
+                <div class="form-info">
+                    <label for="horimetro">Horímetro:</label>
+                    <input type="text" id="horimetro" name="horimetro" placeholder="Digite o horímetro da máquina" required>
+                </div>
+
+                <!-- Itens do checklist -->
+                <div class="checklist-item">
+                    <label>Condição dos garfos:</label>
+                    <div>
+                        <label><input type="radio" name="Condição dos garfos" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Condição dos garfos" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-garfos">Explique o motivo:</label>
+                        <input type="text" id="observacao-garfos" name="observacao-garfos" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Funcionamento do freio de mão:</label>
+                    <div>
+                        <label><input type="radio" name="Freio de mão" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Freio de mão" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-freio">Explique o motivo:</label>
+                        <input type="text" id="observacao-freio" name="observacao-freio" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Presença e estado do extintor de incêndio:</label>
+                    <div>
+                        <label><input type="radio" name="Extintor de incêndio" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Extintor de incêndio" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-extintor">Explique o motivo:</label>
+                        <input type="text" id="observacao-extintor" name="observacao-extintor" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Condição dos espelhos retrovisores:</label>
+                    <div>
+                        <label><input type="radio" name="Espelhos retrovisores" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Espelhos retrovisores" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-espelhos">Explique o motivo:</label>
+                        <input type="text" id="observacao-espelhos" name="observacao-espelhos" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Verificação de ruídos anormais durante o funcionamento:</label>
+                    <div>
+                        <label><input type="radio" name="Ruídos anormais" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Ruídos anormais" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-ruidos">Explique o motivo:</label>
+                        <input type="text" id="observacao-ruidos" name="observacao-ruidos" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Funcionamento do sistema de direção:</label>
+                    <div>
+                        <label><input type="radio" name="Sistema de direção" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Sistema de direção" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-direcao">Explique o motivo:</label>
+                        <input type="text" id="observacao-direcao" name="observacao-direcao" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Óleo da máquina:</label>
+                    <div>
+                        <label><input type="radio" name="Óleo da máquina" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Óleo da máquina" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-oleo">Explique o motivo:</label>
+                        <input type="text" id="observacao-oleo" name="observacao-oleo" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Pneus:</label>
+                    <div>
+                        <label><input type="radio" name="Pneus" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Pneus" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-pneus">Explique o motivo:</label>
+                        <input type="text" id="observacao-pneus" name="observacao-pneus" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Inclinação da torre:</label>
+                    <div>
+                        <label><input type="radio" name="Inclinação da torre" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Inclinação da torre" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-torre">Explique o motivo:</label>
+                        <input type="text" id="observacao-torre" name="observacao-torre" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Alarme de ré:</label>
+                    <div>
+                        <label><input type="radio" name="Alarme de ré" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Alarme de ré" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-alarme">Explique o motivo:</label>
+                        <input type="text" id="observacao-alarme" name="observacao-alarme" placeholder="Descreva o problema">
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <label>Luzes:</label>
+                    <div>
+                        <label><input type="radio" name="Luzes" value="Bom"> Bom</label>
+                        <label><input type="radio" name="Luzes" value="Ruim" class="ruim-option"> Ruim</label>
+                    </div>
+                    <div class="observacao-container">
+                        <label for="observacao-luzes">Explique o motivo:</label>
+                        <input type="text" id="observacao-luzes" name="observacao-luzes" placeholder="Descreva o problema">
+                    </div>
+                </div>
+
+                <!-- Botão de concluir -->
+                <button type="button" id="concluirBtn" class="btn">Concluir</button>
+            </form>
+        </section>
+
+        <!-- Histórico de checklists -->
+        <section id="historico">
+            <div class="historico-header">
+                <h2>Histórico de Checklists</h2>
+                <div class="controls">
+                    <button id="limparHistoricoBtn" class="btn">Limpar Histórico</button>
+                    <select id="slicerMeses" class="slicer">
+                        <option value="">Todos os meses</option>
+                    </select>
+                </div>
+            </div>
+            <div id="historicoContainer">
+                <!-- Botões e detalhes do histórico aparecerão aqui -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Checklist de Empilhadeira</p>
+    </footer>
+</body>
+</html>
